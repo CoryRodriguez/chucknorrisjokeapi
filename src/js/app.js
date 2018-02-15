@@ -1,10 +1,20 @@
 document.querySelector('.get-jokes').addEventListener('click', getJokes);
 
+const inputForm = document.querySelector('.inputForm');
+const num = document.querySelector('#number');
+
 function getJokes(e) {
   const number = document.querySelector('input[type="number"]').value;
 
   const xhr = new XMLHttpRequest();
 
+  // if (num.value === '') {
+  //     selectNumber();
+  //   } else {
+  //   let para = document.createTextNode('Please enter a number! ');
+  //     inputForm.removeChild(para);
+  // }
+  
   xhr.open('GET', `http://api.icndb.com/jokes/random/${number}`, true);
 
   xhr.onload = function () {
@@ -29,3 +39,8 @@ function getJokes(e) {
 
   e.preventDefault();
 }
+
+// function selectNumber() {
+//   let para = document.createTextNode('Please enter a number! ');
+//   inputForm.appendChild(para);
+// }
